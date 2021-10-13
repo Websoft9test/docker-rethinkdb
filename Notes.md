@@ -1,6 +1,5 @@
-## About
+## RethinkDB
 
-This repository is forked from ONLYOFFICE/Docker-CommunityServer, we have the following modifications are provided
+### 配置
 
-* replace README.md
-* add README-zh.md, CHANGELOG.md, Note.md, License.md, docker-compose.yml,.env, src, .github folder
+目前没有测试命令使用。web界面也无法在远程端口打开，需进一步研究
