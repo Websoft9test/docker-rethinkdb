@@ -12,6 +12,12 @@ services:
      - ${APP_PORT}:8080
      - ${APP_CLIENT_PORT}:28015
      - ${APP_CLUSTER_PORT}:29015
+    command:
+      - /bin/bash
+      - -c
+      - |
+        rethinkdb create --initial-password  ${APP_PASSWORD}
+        rethinkdb --bind all
     volumes:
       - rethinkdb_data:/data
 
