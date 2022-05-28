@@ -1,27 +1,23 @@
 # docs: https://github.com/docker-library/docs/blob/master/rethinkdb/README.md
 # image: https://hub.docker.com/_/rethinkdb
-# Listening for intracluster connections on port 29015
-# Listening for client driver connections on port 28015
-# Listening for administrative HTTP connections on port 8080
-
 
 version: '3.8'
 
 services:
   rethinkdb:
-    image: rethinkdb:${DB_RETHINKDB_VERSION}
+    image: rethinkdb:${APP_VERSION}
     container_name: rethinkdb
     restart: always
     ports:
-     - ${DB_RETHINKDB_HTTP_PORT}:8080
-     - ${DB_RETHINKDB_CLIENT_PORT}:28015
-     - ${DB_RETHINKDB_CLUSTER_PORT}:29015
+     - ${APP_PORT}:8080
+     - ${APP_CLIENT_PORT}:28015
+     - ${APP_CLUSTER_PORT}:29015
     volumes:
-      - ${VOLUMES_PATH_PREFIX}/rethinkdb/data:/data
+      - rethinkdb_data:/data
 
 networks:
   default:
-      name: ${DB_RETHINKDB_NETWORK}
+      name: $(APP_NAME}
 
 volumes:
   rethinkdb:
